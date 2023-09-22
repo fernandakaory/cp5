@@ -1,0 +1,15 @@
+{
+    "description": "Lamp Commands",
+    "dataProvided": {
+      "entities": [
+        {
+          "id": "urn:ngsi-ld:Lamp:0002","type": "Lamp"
+        }
+      ],
+      "attrs": [ "on", "off" ]
+    },
+    "provider": {
+      "http": {"url": "http://{{url}}:4041"},
+      "legacyForwarding": true
+    }
+  }

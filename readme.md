@@ -8,9 +8,9 @@ Para garantir a qualidade dos produtos, está sendo desenvolvido um sensor capaz
 ## Gráficos de leitura de luminosidade
 Os gráficos abaixo foram montados a partir dos dados coletados em um intervalo de 15 minutos.
 ![Untitled (1)](https://github.com/fernandakaory/cp5-edge/assets/126582859/d7a043ad-0085-4fec-aeb8-a93f3da52889)
-Este primeiro gráfico foi montado para mostrar as leituras de luminosidade por minuto em um determinado intervalo de tempo. Clique <a href=https://github.com/fabiocabrini/fiware>aqui</a> para visualizar o código utilizado.
+Este primeiro gráfico foi montado para mostrar as leituras de luminosidade por minuto em um determinado intervalo de tempo. Clique <a href="https://github.com/fernandakaory/cp5-edge/blob/main/grafico.py">aqui</a> para visualizar o código utilizado.
 ![Untitled (2)](https://github.com/fernandakaory/cp5-edge/assets/126582859/48b73f69-59a5-46c5-8c1d-aa1ed0bb00ed)
-Este segundo gráfico foi montado para exibir mais leituras de luminosidades captadas em um intervalo de tempo. Clique <a href=https://github.com/fabiocabrini/fiware>aqui</a> para visualizar o código utilizado.
+Este segundo gráfico foi montado para exibir mais leituras de luminosidades captadas em um intervalo de tempo. Clique <a href="https://github.com/fernandakaory/cp5-edge/blob/main/grafico2.py">aqui</a> para visualizar o código utilizado.
 
 ## Arquitetura IoT
 <div align="center">
