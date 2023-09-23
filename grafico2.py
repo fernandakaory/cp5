@@ -3,8 +3,8 @@ import requests
 import matplotlib.pyplot as plt
 
 # Função para obter os dados de luminosidade a partir da API
-def obter_dados_luminosidade(dateFrom, dateTo, lastN):
-    url = f"http://46.17.108.113:8666/STH/v1/contextEntities/type/Lamp/id/urn:ngsi-ld:Lamp:001/attributes/luminosity?dateFrom={dateFrom}&dateTo={dateTo}&lastN={lastN}"
+def obter_dados_luminosidade(dispositivo, dateFrom, dateTo, lastN):
+    url = f"http://46.17.108.113:8666/STH/v1/contextEntities/type/Lamp/id/{dispositivo}/attributes/luminosity?dateFrom={dateFrom}&dateTo={dateTo}&lastN={lastN}"
     headers = {
         'fiware-service': 'smart',
         'fiware-servicepath': '/'
@@ -52,7 +52,7 @@ while len(dados_completos) < total_registros_desejados:
     lastN = min(tamanho_lote, total_registros_desejados - len(dados_completos))
 
     # Obtenha os dados e adicione-os à lista de dados completos
-    luminosity_data = obter_dados_luminosidade("2023-09-19T18:32:37.257Z", "2023-09-19T18:47:17.257Z",lastN)
+    luminosity_data = obter_dados_luminosidade("identificação do dispositivo","2023-09-19T18:32:37.257Z", "2023-09-19T18:47:17.257Z",lastN)
     dados_completos.extend(luminosity_data)
 
     # Atualize o total de registros recuperados
