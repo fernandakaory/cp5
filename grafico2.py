@@ -4,7 +4,8 @@ import matplotlib.pyplot as plt
 
 # Função para obter os dados de luminosidade a partir da API
 def obter_dados_luminosidade(dispositivo, dateFrom, dateTo, lastN):
-    url = f"http://46.17.108.113:8666/STH/v1/contextEntities/type/Lamp/id/{dispositivo}/attributes/luminosity?dateFrom={dateFrom}&dateTo={dateTo}&lastN={lastN}"
+    endereco_url = "46.17.108.113"
+    url = f"http://{endereco_url}:8666/STH/v1/contextEntities/type/Lamp/id/{dispositivo}/attributes/luminosity?dateFrom={dateFrom}&dateTo={dateTo}&lastN={lastN}"
     headers = {
         'fiware-service': 'smart',
         'fiware-servicepath': '/'
@@ -37,29 +38,29 @@ def plotar_grafico(luminosity_data):
     plt.tight_layout()
     plt.show()
 
-# Inicialize uma lista vazia para armazenar os dados
+# Inicializa uma lista vazia para armazenar os dados
 dados_completos = []
 
 # Número total de registros que você deseja recuperar
 total_registros_desejados = 81
 
-# Defina o tamanho do lote para cada chamada (o limite da API)
+# Define o tamanho do lote para cada chamada (o limite da API)
 tamanho_lote = 100
 
-# Faça chamadas sequenciais até obter o número desejado de registros
+# Faz chamadas sequenciais até obter o número desejado de registros
 while len(dados_completos) < total_registros_desejados:
-    # Calcule o valor de lastN para esta chamada
+    # Calcula o valor de lastN para esta chamada
     lastN = min(tamanho_lote, total_registros_desejados - len(dados_completos))
 
-    # Obtenha os dados e adicione-os à lista de dados completos
-    luminosity_data = obter_dados_luminosidade("identificação do dispositivo","2023-09-19T18:32:37.257Z", "2023-09-19T18:47:17.257Z",lastN)
+    # Obtém os dados e adicione-os à lista de dados completos
+    luminosity_data = obter_dados_luminosidade("urn:ngsi-ld:Lamp:001","2023-09-19T18:32:37.257Z", "2023-09-19T18:47:17.257Z",lastN)
     dados_completos.extend(luminosity_data)
 
-    # Atualize o total de registros recuperados
+    # Atualiza o total de registros recuperados
     total_registros_recuperados = len(dados_completos)
 
     print(f"Registros recuperados: {total_registros_recuperados}/{total_registros_desejados}")
 
-# Obtenha os dados de luminosidade completos e plote o gráfico
+# Obtém os dados de luminosidade completos e plote o gráfico
 luminosity_data.sort(key=lambda x: x['recvTime'])
 plotar_grafico(dados_completos)
