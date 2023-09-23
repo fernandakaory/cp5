@@ -53,7 +53,7 @@ while len(dados_completos) < total_registros_desejados:
     lastN = min(tamanho_lote, total_registros_desejados - len(dados_completos))
 
     # Obtém os dados e adicione-os à lista de dados completos
-    luminosity_data = obter_dados_luminosidade("urn:ngsi-ld:Lamp:001","2023-09-19T18:32:37.257Z", "2023-09-19T18:47:17.257Z",lastN)
+    luminosity_data = obter_dados_luminosidade("identificaçao do dispositivo","2023-09-19T18:32:37.257Z", "2023-09-19T18:47:17.257Z",lastN)
     dados_completos.extend(luminosity_data)
 
     # Atualiza o total de registros recuperados
