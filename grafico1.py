@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from datetime import datetime
 
 # Fazer a solicitação à API
-url = "http://46.17.108.113:8666/STH/v1/contextEntities/type/Lamp/id/urn:ngsi-ld:Lamp:001/attributes/luminosity?aggrMethod=max&aggrPeriod=minute&dateFrom=2023-09-18T22:30:21.237&dateTo=2023-09-18T22:45:21.237"
+url = "http://46.17.108.113:8666/STH/v1/contextEntities/type/Lamp/id/urn:ngsi-ld:Lamp:0002/attributes/luminosity?aggrMethod=max&aggrPeriod=minute&dateFrom=2023-09-23T00:06:43.612&dateTo=2023-09-23T00:21:43.612"
 
 headers = {
     'fiware-service': 'smart',
@@ -25,8 +25,9 @@ if response.status_code == 200:
 
     # Plotar o gráfico
     plt.figure(figsize=(12, 6))
-    
+
     # Converter os tempos para o formato desejado (eixo x do gráfico)
+    # Modificar a data, caso desejado.
     tempos_formatados = [f"2023-09-18T22:{offset:02d}:00.000Z" for offset in tempos]
 
     plt.plot(tempos_formatados, luminosidade, marker='o', linestyle='-', color='r')
